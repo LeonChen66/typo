@@ -1,0 +1,188 @@
+Last login: Thu Feb 14 07:15:07 on console
+You have new mail.
+west-10-232-146-192:~ leonchen$ cd desktop
+west-10-232-146-192:desktop leonchen$ cd TAMU\ Courses/
+west-10-232-146-192:TAMU Courses leonchen$ pwd
+/Users/leonchen/desktop/TAMU Courses
+west-10-232-146-192:TAMU Courses leonchen$ pwd
+/Users/leonchen/desktop/TAMU Courses
+west-10-232-146-192:TAMU Courses leonchen$ cd Analysis-of-Algorithm/
+west-10-232-146-192:Analysis-of-Algorithm leonchen$  touch .gitignore
+west-10-232-146-192:Analysis-of-Algorithm leonchen$ vim .gitignore 
+west-10-232-146-192:Analysis-of-Algorithm leonchen$ echo "*.docx" > .gitignore
+west-10-232-146-192:Analysis-of-Algorithm leonchen$ vim .gitignore 
+west-10-232-146-192:Analysis-of-Algorithm leonchen$ git add HW1/
+west-10-232-146-192:Analysis-of-Algorithm leonchen$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   HW1/.DS_Store
+	new file:   HW1/HW1_ans.pdf
+	new file:   HW1/homework1.pdf
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+	.gitignore
+	Btree.pptx
+	Introduction to Algorithms.pdf
+	trees.pdf
+	"\347\256\227\346\263\225\345\257\274\350\256\272 \347\254\254\344\270\211\347\211\210 .pdf"
+
+west-10-232-146-192:Analysis-of-Algorithm leonchen$ git commit -m "hw1"
+[master f728741] hw1
+ Committer: 陳立恒 <leonchen@west-10-232-146-192.tamulink.tamu.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 HW1/.DS_Store
+ create mode 100644 HW1/HW1_ans.pdf
+ create mode 100644 HW1/homework1.pdf
+west-10-232-146-192:Analysis-of-Algorithm leonchen$ git push
+Counting objects: 6, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 220.00 KiB | 27.50 MiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To https://github.com/LeonChen66/Analysis-of-Algorithm.git
+   508eb5d..f728741  master -> master
+west-10-232-146-192:Analysis-of-Algorithm leonchen$ cd ..
+west-10-232-146-192:TAMU Courses leonchen$ cd Software-Engineering/
+west-10-232-146-192:Software-Engineering leonchen$ pwdd
+-bash: pwdd: command not found
+west-10-232-146-192:Software-Engineering leonchen$ pwd
+/Users/leonchen/desktop/TAMU Courses/Software-Engineering
+west-10-232-146-192:Software-Engineering leonchen$ cd typo
+west-10-232-146-192:typo leonchen$ cucumber
+Using the default profile...
+/Users/leonchen/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.0.17/lib/active_support/dependencies.rb:242:in `block in require': iconv will be deprecated in the future, use String#encode instead.
+Feature: Create Categories
+    As a blogger
+    I need to be able to add new categories
+
+  Background:                            # features/categories.feature:5
+    Given the blog is set up             # features/step_definitions/web_steps.rb:34
+    And I am logged into the admin panel # features/step_definitions/web_steps.rb:46
+
+  Scenario: Successfully add new categories             # features/categories.feature:9
+    Given I am on the new categories page               # features/step_definitions/web_steps.rb:68
+    When I fill in "category_name" with "test"          # features/step_definitions/web_steps.rb:84
+    And I fill in "category_keywords" with "key_words"  # features/step_definitions/web_steps.rb:84
+    And I fill in "category_permalink" with "GG"        # features/step_definitions/web_steps.rb:84
+    Then I press "Save"                                 # features/step_definitions/web_steps.rb:76
+    Then I should see "Category was successfully saved" # features/step_definitions/web_steps.rb:129
+
+Feature: Create Blog
+  As an author
+  In order to gift my thoughts to the world
+  I want to create a blog
+
+  Scenario: Create blog page shown      # features/create_blog.feature:6
+    Given I am on the home page         # features/step_definitions/web_steps.rb:68
+    Then I should see "Welcome"         # features/step_definitions/web_steps.rb:129
+    And I should see "My Shiny Weblog!" # features/step_definitions/web_steps.rb:129
+
+  Scenario: Create blog page not shown when blog created # features/create_blog.feature:11
+    Given the blog is set up                             # features/step_definitions/web_steps.rb:34
+    When I am on the home page                           # features/step_definitions/web_steps.rb:68
+    Then I should not see "My Shiny Weblog!"             # features/step_definitions/web_steps.rb:147
+    And I should see "Teh Blag"                          # features/step_definitions/web_steps.rb:129
+
+Feature: Write Articles
+  As a blog administrator
+  In order to share my thoughts with the world
+  I want to be able to add articles to my blog
+
+  Background:                            # features/write_article.feature:6
+    Given the blog is set up             # features/step_definitions/web_steps.rb:34
+    And I am logged into the admin panel # features/step_definitions/web_steps.rb:46
+
+  Scenario: Successfully write articles                                  # features/write_article.feature:10
+    Given I am on the new article page                                   # features/step_definitions/web_steps.rb:68
+    When I fill in "article_title" with "Foobar"                         # features/step_definitions/web_steps.rb:84
+    And I fill in "article__body_and_extended_editor" with "Lorem Ipsum" # features/step_definitions/web_steps.rb:84
+    And I press "Publish"                                                # features/step_definitions/web_steps.rb:76
+    Then I should be on the admin content page                           # features/step_definitions/web_steps.rb:254
+    When I go to the home page                                           # features/step_definitions/web_steps.rb:72
+    Then I should see "Foobar"                                           # features/step_definitions/web_steps.rb:129
+    When I follow "Foobar"                                               # features/step_definitions/web_steps.rb:80
+    Then I should see "Lorem Ipsum"                                      # features/step_definitions/web_steps.rb:129
+
+4 scenarios (4 passed)
+26 steps (26 passed)
+0m2.056s
+west-10-232-146-192:typo leonchen$ clear
+
+west-10-232-146-192:typo leonchen$ cucumber
+Using the default profile...
+/Users/leonchen/.rvm/gems/ruby-1.9.3-p551/gems/activesupport-3.0.17/lib/active_support/dependencies.rb:242:in `block in require': iconv will be deprecated in the future, use String#encode instead.
+Feature: Create Categories
+    As a blogger
+    I need to be able to add new categories
+
+  Background:                            # features/categories.feature:5
+    Given the blog is set up             # features/step_definitions/web_steps.rb:34
+    And I am logged into the admin panel # features/step_definitions/web_steps.rb:46
+
+  Scenario: Successfully add new categories             # features/categories.feature:9
+    Given I am on the new categories page               # features/step_definitions/web_steps.rb:68
+    When I fill in "category_name" with "test"          # features/step_definitions/web_steps.rb:84
+    And I fill in "category_keywords" with "key_words"  # features/step_definitions/web_steps.rb:84
+    And I fill in "category_permalink" with "GG"        # features/step_definitions/web_steps.rb:84
+    Then I press "Save"                                 # features/step_definitions/web_steps.rb:76
+    Then I should see "Category was successfully saved" # features/step_definitions/web_steps.rb:129
+
+Feature: Create Blog
+  As an author
+  In order to gift my thoughts to the world
+  I want to create a blog
+
+  Scenario: Create blog page shown      # features/create_blog.feature:6
+    Given I am on the home page         # features/step_definitions/web_steps.rb:68
+    Then I should see "Welcome"         # features/step_definitions/web_steps.rb:129
+    And I should see "My Shiny Weblog!" # features/step_definitions/web_steps.rb:129
+
+  Scenario: Create blog page not shown when blog created # features/create_blog.feature:11
+    Given the blog is set up                             # features/step_definitions/web_steps.rb:34
+    When I am on the home page                           # features/step_definitions/web_steps.rb:68
+    Then I should not see "My Shiny Weblog!"             # features/step_definitions/web_steps.rb:147
+    And I should see "Teh Blag"                          # features/step_definitions/web_steps.rb:129
+
+Feature: Write Articles
+  As a blog administrator
+  In order to share my thoughts with the world
+  I want to be able to add articles to my blog
+
+  Background:                            # features/write_article.feature:6
+    Given the blog is set up             # features/step_definitions/web_steps.rb:34
+    And I am logged into the admin panel # features/step_definitions/web_steps.rb:46
+
+  Scenario: Successfully write articles                                  # features/write_article.feature:10
+    Given I am on the new article page                                   # features/step_definitions/web_steps.rb:68
+    When I fill in "article_title" with "Foobar"                         # features/step_definitions/web_steps.rb:84
+    And I fill in "article__body_and_extended_editor" with "Lorem Ipsum" # features/step_definitions/web_steps.rb:84
+    And I press "Publish"                                                # features/step_definitions/web_steps.rb:76
+    Then I should be on the admin content page                           # features/step_definitions/web_steps.rb:254
+    When I go to the home page                                           # features/step_definitions/web_steps.rb:72
+    Then I should see "Foobar"                                           # features/step_definitions/web_steps.rb:129
+    When I follow "Foobar"                                               # features/step_definitions/web_steps.rb:80
+    Then I should see "Lorem Ipsum"                                      # features/step_definitions/web_steps.rb:129
+
+4 scenarios (4 passed)
+26 steps (26 passed)
+0m2.021s
+west-10-232-146-192:typo leonchen$ 
